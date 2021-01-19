@@ -9,7 +9,7 @@ namespace NivelEscudeiro
     {
         static void Main(string[] args)
         {
-            IExecutar exercicio = new POO2();
+            IExecutar exercicio = new POO4();
             exercicio.Executar();
         }
     }
