@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace NivelEscudeiro.ExerciciosConsole
+{
+    public class Console7: IExecutar
+    {
+        public void Executar()
+        {
+            Console.WriteLine("Console - Exercício 7");
+            Console.WriteLine("");
+
+            Console.WriteLine("Informe 4 números inteiros maiores que 0:");
+            var numeros = new List<int>();
+
+            while (numeros.Count < 4)
+            {
+                Console.Write($"Número {numeros.Count+1}: ");
+                Int32.TryParse(Console.ReadLine(), out int numero);
+                if (numero > 0) numeros.Add(numero);
+            }
+
+            var numerosPares = numeros.Where(x => x % 2 == 0);
+            Console.WriteLine($"Soma dos números pares: {(numerosPares.Count() > 0 ? numerosPares.Sum() : 0)}");
+        }
+    }
+}
