@@ -1,25 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace NivelEscudeiro.POO
 {
+    [Description("POO - Exercício 4")]
     public class POO4 : IExecutar
     {
         private ControleRemoto Controle { get; set; } = new ControleRemoto(new Televisao());
         public void Executar()
         {
-            Console.WriteLine("POO - Exercício 4");
-            Console.WriteLine();
+            ImprimirDescricaoExercicio();            
+            
             Controle.Imprimir();
             int opcao = 1;
 
-            while (opcao != (int)OpcoesEnum.Desligar)
+            while (opcao != (int)OpcoesPOO4Enum.Desligar)
             {
                 opcao = ExibirMenu();
                 Console.Clear();
+                ImprimirDescricaoExercicio();
                 ExecutarAcao(opcao);
             }
+        }
+
+        private void ImprimirDescricaoExercicio()
+        {
+            Console.WriteLine(@"
+POO - Exercício 4
+Crie uma classe Televisao e uma classe ControleRemoto que pode controlar o volume e trocar os canais da televisão. O controle permite:
+
+-Aumentar ou diminuir a potência do volume de som em uma unidade de cada vez.
+-Aumentar e diminuir o número do canal em uma unidade.
+-Trocar para um canal indicado.
+-Consultar o valor do volume de som e o canal selecionado.
+-Imprima os dados via console.
+------------------------------------------------------------------------------------------------------------------------------------------
+");
         }
 
         private int ExibirMenu()
@@ -48,25 +66,25 @@ namespace NivelEscudeiro.POO
 
         private void ExecutarAcao(int opcao)
         {
-            switch ((OpcoesEnum)opcao)
+            switch ((OpcoesPOO4Enum)opcao)
             {
-                case OpcoesEnum.AumentarCanal:
+                case OpcoesPOO4Enum.AumentarCanal:
                     Controle.AumentarCanal();
                     break;
-                case OpcoesEnum.DiminuirCanal:
+                case OpcoesPOO4Enum.DiminuirCanal:
                     Controle.DiminuirCanal();
                     break;
-                case OpcoesEnum.AumentarVolume:
+                case OpcoesPOO4Enum.AumentarVolume:
                     Controle.AumentarVolume();
                     break;
-                case OpcoesEnum.DiminuirVolume:
+                case OpcoesPOO4Enum.DiminuirVolume:
                     Controle.DiminuirVolume();
                     break;
-                case OpcoesEnum.StatusTV:
+                case OpcoesPOO4Enum.StatusTV:
                     Console.WriteLine("Status da TV ");
                     Controle.Imprimir();
                     break;
-                case OpcoesEnum.IrParaCanal:
+                case OpcoesPOO4Enum.IrParaCanal:
                     int canal = -1;
                     Console.Write("Informe o canal desejado de 0 a 6: ");
                     while (canal == -1)
@@ -75,7 +93,7 @@ namespace NivelEscudeiro.POO
                     }
                     Controle.IrParaOCanal(canal);
                     break;
-                case OpcoesEnum.Desligar:
+                case OpcoesPOO4Enum.Desligar:
                     Console.WriteLine("TV desligada.");
                     break;
 
@@ -83,7 +101,7 @@ namespace NivelEscudeiro.POO
         }
     }
 
-    internal enum OpcoesEnum : int
+    internal enum OpcoesPOO4Enum : int
     {
         AumentarCanal = 1,
         DiminuirCanal = 2,

@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace NivelEscudeiro.ExerciciosConsole
 {
+    [Description("Console - Exercício 9")]
     public class Console9: IExecutar
     {
         public List<int> Inteiros { get; set; } = new List<int>();
         private Random Randomizador { get; set; } = new Random();
         public void Executar()
         {
-            Console.WriteLine("Console - Exercício 9");
-            Console.WriteLine("");
+            ImprimirDescricaoExercicio();                        
             int quantidade = 0;
             while (quantidade <= 0)
             {
@@ -48,6 +49,29 @@ namespace NivelEscudeiro.ExerciciosConsole
 
             Inteiros.ToArray();
 
+        }
+
+        private void ImprimirDescricaoExercicio()
+        {
+            Console.WriteLine(@"
+Console - Exercício 9
+Utilizando a biblioteca LINQ crie no console e execute:
+
+-Crie uma lista que receba inteiros (randomizei a criação dos números para facilitar o teste).
+-Imprimir todos os números da lista.
+-Imprimir todos os números da lista na ordem crescente.
+-Imprimir todos os números da lista na ordem decrescente.
+-Imprima apenas o primeiro número da lista.
+-Imprima apenas o ultimo número da lista.
+-Insira um número no início da lista.
+-Insira um número no final da lista.
+-Remova o primeiro número.
+-Remova o último número.
+-Retorne apenas os números pares.
+-Retorne apenas o número informado.
+-Transforme todos os números da lista em um Array.
+-----------------------------------------------------------------------------------------------------
+");            
         }
 
         private void PopularLista(int quantidadeDeElementos)

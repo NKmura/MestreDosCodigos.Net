@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace NivelEscudeiro.ExerciciosConsole
 {
+    [Description("Console - Exercício 8")]
     public class Console8: IExecutar
     {
         private List<decimal> Numeros { get; set; } = new List<decimal>();
 
         public void Executar()
         {
-            Console.WriteLine("Console - Exercício 8");
-            Console.WriteLine();
+            ImprimirDescricaoExercicio();                        
             int opcao = 0;
-
             while (opcao != 4)
             {
                 opcao = ExibirMenu();
@@ -21,6 +21,15 @@ namespace NivelEscudeiro.ExerciciosConsole
             }
 
 
+        }
+
+        private void ImprimirDescricaoExercicio()
+        {
+            Console.WriteLine(@"
+Console - Exercício 8
+Faça uma aplicação ler N valores decimais, imprima os valores em ordem crescente e decrescente.
+-----------------------------------------------------------------------------------------------
+");            
         }
 
         private void ExecutarAcao(int opcao)

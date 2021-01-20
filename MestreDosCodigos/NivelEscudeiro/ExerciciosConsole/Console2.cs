@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.ComponentModel;
 
 namespace NivelEscudeiro.ExerciciosConsole
-{    
+{
+    [Description("Console - Exercício 2")]
     public class Console2: IExecutar
     {
         private int Iteracoes;
@@ -12,7 +14,7 @@ namespace NivelEscudeiro.ExerciciosConsole
 
         public void Executar()
         {
-            Console.WriteLine("Console - Exercicio 2");
+            ImprimirDescricaoExercicio();
             while (Iteracoes <= 0)
             {
                 Iteracoes = GetIntInput("Informe a quantidade de iterações: ");
@@ -30,6 +32,19 @@ namespace NivelEscudeiro.ExerciciosConsole
             Console.WriteLine("Respostas");
             Console.WriteLine($"Maior salário: {maiorSalario.Nome} [{maiorSalario.Salario.ToString("C")}]");
             Console.WriteLine($"Menor salário: {menorSalario.Nome} [{menorSalario.Salario.ToString("C")}]");
+        }
+
+        private void ImprimirDescricaoExercicio()
+        {
+            Console.WriteLine(@"
+Console - Exercício 2
+
+Crie uma aplicação que receba nome e salário de N funcionários. Utilize a repetição for e while.
+
+-Imprima o maior salário
+-Imprima o menor salário.
+-------------------------------------------------------------------------------------------------------
+");
         }
 
         private Funcionario LerFuncionario(int iteracao)

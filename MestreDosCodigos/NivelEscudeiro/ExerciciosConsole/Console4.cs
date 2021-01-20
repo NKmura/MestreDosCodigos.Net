@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
 namespace NivelEscudeiro.ExerciciosConsole
 {
+    [Description("Console - Exercício 4")]
     public class Console4: IExecutar
     {
         private List<Aluno> Alunos = new List<Aluno>();        
 
         public void Executar()
         {
-            Console.WriteLine("Console - Exercício 3");
-            Console.WriteLine();
+            ImprimirDescricaoExercicio();                        
             int opcao = 0;
 
             while (opcao != 3)
@@ -21,6 +22,20 @@ namespace NivelEscudeiro.ExerciciosConsole
                 ExecutarAcao(opcao);
             }
 
+
+        }
+
+        private void ImprimirDescricaoExercicio()
+        {
+            Console.WriteLine(@"
+Console - Exercício 4
+Faça uma aplicação que receba N alunos com suas respectivas notas. Use foreach para a estrutura de repetição.
+
+-Crie um objeto Alunos.
+-Armazene os alunos em uma lista.
+-Imprima todos os alunos com médias superiores a 7.
+------------------------------------------------------------------------------------------------------------------
+");
 
         }
 
