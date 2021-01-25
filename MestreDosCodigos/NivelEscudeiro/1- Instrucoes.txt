@@ -1,8 +1,8 @@
-﻿As respostas para os exercícios teóricos podem ser encontradas dentro do arquivo '1- Perguntas teóricas' dentro da pasta 'ExerciciosConsole'.
+﻿As respostas para os exercícios teóricos podem ser encontradas dentro do arquivo '1- Perguntas teóricas' dentro presente na raiz da solução.
 
 Cada um dos exercícios práticos foi implementado dentro de um único arquivo e poderão ser conferidos nos namespaces ~/Console e ~/POO.
 
- Para executar o menu de execução dos exercícios:
+ Para executar o menu que dá acesso a execução de todos os exercícios:
  -Atribua para a variavel 'exercicio' da classe 'Program.cs' um objeto do tipo 'ExecutarTodos'.
 
  Para executar os exercícios individualmente:

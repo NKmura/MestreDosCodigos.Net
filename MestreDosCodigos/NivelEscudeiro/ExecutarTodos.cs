@@ -54,10 +54,14 @@ namespace NivelEscudeiro
             int opcao = 0;
             Console.WriteLine(@"
 INFORMAÇÕES
--Essa aplicação permite executar todos os exercícios presentes na solução,
+-Essa aplicação permite executar todos* os exercícios presentes na solução,
  para isso basta digitar o número do exercício desejado e apertar a tecla enter.
 
 -Ao encerrar um exercício você será redirecionado novamente ao menu de seleção.
+
+OBS: o exercício 1 de programação objetos não poderá ser executado pelo menu, 
+pois o mesmo não possui iteração via console, sendo somente diversas demonstrações
+de conceitos da POO. Para sua correção abra a classe no namespace ~/POO.
 ");
 
             Console.WriteLine("-----------------------------------Exercícios-------------------------------------");
