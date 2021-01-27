@@ -24,7 +24,7 @@ R:
 -Open source
 
 
-Perguntas POO
+Perguntas POO (Implementação dos exemplos podem ser conferidos no arquivo ~/POO/POO1)
 
 1- O que é POO?
 R: Programação Orientada a Objetos (POO) é um paradigma de programação no qual tenta aproximar a codificação das estruturas de um programa a objetos do mundo real, 
