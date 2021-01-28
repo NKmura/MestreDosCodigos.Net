@@ -169,6 +169,7 @@ Faça uma aplicação bancária.
             if((this.Saldo+ valor - this.TaxaDeOperacao) > 0)
             {
                 Saldo += valor-this.TaxaDeOperacao;
+                Saldo = Math.Round(Saldo, 2);
                 Console.WriteLine($"Depósito realizado: {valor.ToString("C")}");
             }            
         }
@@ -178,6 +179,7 @@ Faça uma aplicação bancária.
             if (this.Saldo -(valor + TaxaDeOperacao) > 0)
             {
                 this.Saldo -= (valor + TaxaDeOperacao);
+                Saldo = Math.Round(Saldo, 2);
                 Console.WriteLine($"Saque realizado: {valor.ToString("C")}");
             }
             else
@@ -206,6 +208,7 @@ Faça uma aplicação bancária.
         public override void Depositar(double valor)
         {
             this.Saldo += valor;
+            Saldo = Math.Round(Saldo, 2);
             Console.WriteLine($"Depósito realizado: {valor.ToString("C")}");
         }
 
@@ -214,6 +217,7 @@ Faça uma aplicação bancária.
             if((Saldo-valor) > (Limite * -1))
             {
                 Saldo -= valor;
+                Saldo = Math.Round(Saldo, 2);
                 Console.WriteLine($"Saque realizado: {valor.ToString("C")}");
             }
             else

@@ -1,12 +1,13 @@
 ﻿using Bogus;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NivelEscudeiro.POO;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xunit;
 
-namespace TestesXUnit
+namespace TestesMsTest
 {
+    [TestClass]
     public class ContaCorrenteTests
     {
         private readonly Faker _faker;
@@ -16,18 +17,18 @@ namespace TestesXUnit
             _faker = new Faker();
         }
 
-        [Fact]
+        [TestMethod]
         public void DeveSacarCorretamente()
-        {            
+        {
             var cc = CriarConta();
             var valorSaque = Math.Round((cc.ObterSaldo() * 0.01d),2);
-            var saldoEsperado = Math.Round((cc.ObterSaldo() - cc.ObterTaxa() - valorSaque),2);
+            var saldoEsperado = Math.Round((cc.ObterSaldo() - cc.ObterTaxa() - valorSaque), 2);
 
             cc.Sacar(valorSaque);
-            Assert.Equal(saldoEsperado, cc.ObterSaldo());
+            Assert.AreEqual(saldoEsperado, cc.ObterSaldo());
         }
 
-        [Fact]
+        [TestMethod]
         public void DeveDepositarCorretamente()
         {
             var cc = CriarConta();
@@ -35,7 +36,7 @@ namespace TestesXUnit
             var saldoEsperado = Math.Round((cc.ObterSaldo() - cc.ObterTaxa() + valorDeposito),2);
 
             cc.Depositar(valorDeposito);
-            Assert.Equal(saldoEsperado, cc.ObterSaldo());
+            Assert.AreEqual(saldoEsperado, cc.ObterSaldo());
         }
 
         private ContaCorrente CriarConta()

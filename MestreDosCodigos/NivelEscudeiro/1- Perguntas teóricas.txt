@@ -73,3 +73,4 @@ QUESTÕES SOBRE TESTES
 2- Escolha dois frameworks e faça testes unitários para pelo menos dois exercícios em cada framework.
 Os testes estão disponíveis nos projetos
 -TestesXUnit
+-TestesMsTest
