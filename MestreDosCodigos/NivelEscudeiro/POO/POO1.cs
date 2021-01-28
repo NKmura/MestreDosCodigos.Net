@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace NivelEscudeiro.POO
@@ -259,14 +261,106 @@ namespace NivelEscudeiro.POO
     #endregion
 
     #region 6-O que faz as interfaces IDisposable, IComparable, ICloneable e IEnumerable?
-//IDisposable: Define que uma classe implemente o método Dispose(). Esse método é usado para liberar recursos não gerenciaveis, como por exemplo memória.
+    //IDisposable: Define que uma classe implemente o método Dispose(). Esse método é usado para liberar recursos não gerenciaveis, como por exemplo memória.
+    internal class ExemploIDisposable : IDisposable
+    {
+        public MemoryStream Arquivo { get; set; }
 
-//IComparable: Define que uma classe implemente o método CompareTo(). Esse método permite definir a posição de um objeto em uma ordem de classificação.
+        public ExemploIDisposable()
+        {
+            Arquivo = new MemoryStream();
+        }
+        public void Dispose()
+        {
+            //Código para liberar recursos não gerenciaveis
+            Arquivo.Close();           
+        }
+    }
 
-//ICloneable:  Define quem uma classe implemente o método Clone(). Esse método permite replicar um objeto com os mesmos valores de uma instância existente.
+    //IComparable: Define que uma classe implemente o método CompareTo(). Esse método permite definir a posição de um objeto em uma ordem de classificação.
+    internal class ExemploIComparable : IComparable
+    {
+        public int Valor { get; set; }
+        public int CompareTo(Object obj)
+        {
+            if (obj == null) return 1;
 
-//IEnumerable: Define que uma classe implemente o método GetEnumerator() que retorna um enumerador, esse enumerador permite a iteração simples em uma lista não generica de elementos, resumindo ele permite deixar algo "iteravel".
+            var exemplo = obj as ExemploIComparable;
+            if (exemplo != null)
+            {
+                if (this.Valor < exemplo.Valor) return -1;
+                else if (this.Valor > exemplo.Valor) return 1;
+                else return 0;
+            }
+            else
+            {
+                throw new ArgumentException($"O objeto não é um {(typeof(ExemploIComparable).Name)}");
+            }            
+        }
+    }
 
+    //ICloneable:  Define quem uma classe implemente o método Clone(). Esse método permite replicar um objeto com os mesmos valores de uma instância existente.
+    internal class ExemploICloneable : ICloneable
+    {
+        public object Clone()
+        {                           
+            var clone = (ExemploICloneable)this.MemberwiseClone();
+            return clone;            
+        }
+    }
+
+    //IEnumerable: Define que uma classe implemente o método GetEnumerator() que retorna um enumerador, esse enumerador permite a iteração simples em uma lista não generica de elementos, resumindo ele permite deixar algo "iteravel".    
+
+    internal class ListExemploIEnumerable : IEnumerable<int>
+    {
+        private int[] Itens;        
+        public ListExemploIEnumerable(params int[] itens)
+        {
+            this.Itens = itens;
+        }
+
+        public IEnumerator GetEnumerator()
+        {            
+            return new ListExemploIEnumerator(this.Itens);
+        }
+
+        IEnumerator<int> IEnumerable<int>.GetEnumerator()
+        {
+            return new ListExemploIEnumerator(this.Itens);
+        }
+    }
+
+    internal class ListExemploIEnumerator :  IEnumerator<int>        
+    {
+        private int[] Itens;
+        private int Index = -1;
+
+        public int  Current { get; set; } = -1;
+
+        object IEnumerator.Current => Current;
+
+        public ListExemploIEnumerator(params int[] itens)
+        {
+            this.Itens = itens;
+        }
+
+        public void Dispose()
+        {                        
+        }
+
+        public bool MoveNext()
+        {
+            if ((this.Index + 1) == Itens.Length) return false;
+            this.Index++;
+            this.Current = Itens[this.Index];
+            return true;
+        }
+
+        public void Reset()
+        {
+            this.Index = -1;            
+        }
+    }
     #endregion
 
     #region 7-Existe herança múltipla (de classes) em C#?
