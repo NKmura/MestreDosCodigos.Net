@@ -127,7 +127,7 @@ Faça uma aplicação bancária.
         Encerrar=3
     }
 
-    internal abstract class ContaBancaria
+    public abstract class ContaBancaria
     {
         protected string NumeroDaConta { get; set; }
         protected double Saldo { get; set; }
@@ -138,11 +138,16 @@ Faça uma aplicação bancária.
             Saldo = saldo;
         }
 
+        public double ObterSaldo()
+        {
+            return Saldo;
+        }
+
         public abstract void Sacar(double valor);
         public abstract void Depositar(double valor);        
     }
 
-    internal class ContaCorrente: ContaBancaria, Imprimivel
+    public class ContaCorrente: ContaBancaria, Imprimivel
     {
         public double TaxaDeOperacao { get; set; }
 
@@ -152,6 +157,11 @@ Faça uma aplicação bancária.
             double taxaDeOperacao) : base(numeroDaConta, saldo)
         {
             this.TaxaDeOperacao = taxaDeOperacao;
+        }
+
+        public double ObterTaxa()
+        {
+            return TaxaDeOperacao;
         }
         
         public override void Depositar(double valor)
@@ -182,7 +192,7 @@ Faça uma aplicação bancária.
         }
     }
 
-    internal class ContaEspecial : ContaBancaria, Imprimivel
+    public class ContaEspecial : ContaBancaria, Imprimivel
     {
         private double Limite { get; set; }
         public ContaEspecial(

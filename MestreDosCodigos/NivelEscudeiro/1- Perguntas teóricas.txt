@@ -63,4 +63,13 @@ ele permite deixar algo "iteravel".
 R: Não é possivel que uma classe herde de mais de uma classe no C#, o que podemos fazer é utilizar as interfaces para resolver situações onde necessitariamos de multiplas definições para um mesmo objeto.
 
 
+QUESTÕES SOBRE TESTES
 
+1- Quais os principais frameworks que podemos usar no desenvolvimento de testes?
+-MSTest,
+-xUnit
+-NUnit,
+
+2- Escolha dois frameworks e faça testes unitários para pelo menos dois exercícios em cada framework.
+Os testes estão disponíveis nos projetos
+-TestesXUnit

@@ -37,7 +37,7 @@ Crie uma classe para representar uma pessoa:
     }
 
 
-    internal class Pessoa
+    public class Pessoa
     {
         private string Nome { get; set; }
         private DateTime DataNascimento { get; set; }
@@ -80,9 +80,11 @@ Crie uma classe para representar uma pessoa:
             return Altura;
         }
 
-        public int CalcularIdade()
+        public int CalcularIdadeNaData(DateTime? dataBaseCalculo = null)
         {            
-            var idade  = new DateTime(DateTime.Now.Subtract(DataNascimento).Ticks).Year-1;
+            var idade  = new DateTime(
+                (dataBaseCalculo ?? DateTime.Now).Subtract(DataNascimento)                
+                .Ticks).Year-1;
             return idade;
         }
 
@@ -92,7 +94,7 @@ Crie uma classe para representar uma pessoa:
             Console.WriteLine($"Nome: {this.Nome}");
             Console.WriteLine($"Nascimento: {this.DataNascimento.ToShortDateString()}");
             Console.WriteLine($"Altura: {this.Altura}");
-            Console.WriteLine($"Idade: {this.CalcularIdade()}");
+            Console.WriteLine($"Idade: {this.CalcularIdadeNaData()}");
             Console.WriteLine("------------------------------------------------------");
         }
 
