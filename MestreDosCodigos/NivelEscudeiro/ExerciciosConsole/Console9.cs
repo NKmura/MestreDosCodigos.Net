@@ -19,7 +19,7 @@ namespace NivelEscudeiro.ExerciciosConsole
                 Console.Write("Informe a quantidade de elementos que deverão ser randomizados para a lista: ");
                 Int32.TryParse(Console.ReadLine(), out quantidade);
             }
-            PopularLista(quantidade);
+            LerValores(quantidade);
 
             Inteiros.Escrever("Todos elementos");
 
@@ -74,17 +74,21 @@ Utilizando a biblioteca LINQ crie no console e execute:
 ");            
         }
 
-        private void PopularLista(int quantidadeDeElementos)
+        private void LerValores(int quantidadeDeElementos)
         {
+            int valor;
+            Console.WriteLine("Informe os números. Obs: numeros maiores ou iguais a 0.");
             Console.WriteLine("");
-            Console.WriteLine("Randomizando elementos...");
-            
             for (int i = 0; i < quantidadeDeElementos; i++)
             {
-                var numeroRandomizado = Randomizador.Next(1, 1000);
-                if(!Inteiros.Contains(numeroRandomizado)) Inteiros.Add(Randomizador.Next(1, 1000));
-            }
-            Console.WriteLine("Randomização finalizada...");
+                valor = -1;
+                while (valor < 0)
+                {
+                    Console.Write($"Número [{i + 1}]:");
+                    int.TryParse(Console.ReadLine(), out valor);
+                }
+                Inteiros.Add(valor);                
+            }            
             Console.WriteLine();
         }
 

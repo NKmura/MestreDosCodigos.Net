@@ -7,6 +7,7 @@ using Xunit;
 
 namespace TestesXUnit
 {
+    //colocar o nome mais acertivo nos nomes 
     public class ContaCorrenteTests
     {
         private readonly Faker _faker;

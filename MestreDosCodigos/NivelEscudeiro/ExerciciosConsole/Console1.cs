@@ -25,6 +25,7 @@ namespace NivelEscudeiro.ExerciciosConsole
             }
             Console.WriteLine();
             Console.WriteLine("Resultados");
+            Console.WriteLine($"Soma: {ValorA + ValorB}");
             Console.WriteLine($"Subtração: {ValorA - ValorB}");
             Console.WriteLine($"Divisão: {ValorA / ValorB}");
             Console.WriteLine($"Multiplicação: {ValorA * ValorB}");

@@ -35,50 +35,19 @@ Crie uma classe para representar uma pessoa:
 ");
         }
     }
-
-
+    
     public class Pessoa
     {
-        private string Nome { get; set; }
-        private DateTime DataNascimento { get; set; }
-        private decimal Altura { get; set; }
+        public string Nome { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public decimal Altura { get; set; }
 
         public Pessoa(string nome, DateTime dataNascimento, decimal altura)
         {
             Nome = nome;
             DataNascimento = dataNascimento;
             Altura = altura;
-        }
-
-        public void AlterarNome(string nome)
-        {
-            Nome = nome;
-        }
-
-        public string ObterNome()
-        {
-            return Nome;
-        }
-
-        public void AlterarNascimento(DateTime dataNascimento)
-        {
-            DataNascimento = dataNascimento;
-        }
-
-        public DateTime ObterDataDeNascimento()
-        {
-            return DataNascimento;
-        }
-
-        public void AlterarAltura(decimal altura)
-        {
-            Altura = altura;
-        }
-
-        public decimal ObterAltura()
-        {
-            return Altura;
-        }
+        }      
 
         public int CalcularIdadeNaData(DateTime? dataBaseCalculo = null)
         {            
@@ -97,7 +66,5 @@ Crie uma classe para representar uma pessoa:
             Console.WriteLine($"Idade: {this.CalcularIdadeNaData()}");
             Console.WriteLine("------------------------------------------------------");
         }
-
     }
-
 }

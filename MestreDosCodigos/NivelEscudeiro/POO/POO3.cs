@@ -170,21 +170,23 @@ Faça uma aplicação bancária.
             {
                 Saldo += valor-this.TaxaDeOperacao;
                 Saldo = Math.Round(Saldo, 2);
-                Console.WriteLine($"Depósito realizado: {valor.ToString("C")}");
+                Console.WriteLine($"Depósito realizado: {valor.ToString("C")}. Pressione qualquer tecla para prosseguir.");
             }            
         }
 
         public override void Sacar(double valor)
         {
-            if (this.Saldo -(valor + TaxaDeOperacao) > 0)
+            if (this.Saldo -(valor + TaxaDeOperacao) >= 0)
             {
                 this.Saldo -= (valor + TaxaDeOperacao);
                 Saldo = Math.Round(Saldo, 2);
-                Console.WriteLine($"Saque realizado: {valor.ToString("C")}");
+                Console.WriteLine($"Saque realizado: {valor.ToString("C")}. Pressione qualquer tecla para prosseguir.");
+                Console.ReadKey();
             }
             else
             {
-                Console.WriteLine($"Tentativa de saque: {valor.ToString("C")}. Saldo insuficiente.");
+                Console.WriteLine($"Tentativa de saque: {valor.ToString("C")}. Saldo insuficiente. Pressione qualquer tecla para prosseguir.");
+                Console.ReadKey();
             }
         }
 
@@ -209,20 +211,22 @@ Faça uma aplicação bancária.
         {
             this.Saldo += valor;
             Saldo = Math.Round(Saldo, 2);
-            Console.WriteLine($"Depósito realizado: {valor.ToString("C")}");
+            Console.WriteLine($"Depósito realizado: {valor.ToString("C")}. Pressione qualquer tecla para prosseguir.");
         }
 
         public override void Sacar(double valor)
         {
-            if((Saldo-valor) > (Limite * -1))
+            if((Saldo-valor) >= (Limite * -1))
             {
                 Saldo -= valor;
                 Saldo = Math.Round(Saldo, 2);
-                Console.WriteLine($"Saque realizado: {valor.ToString("C")}");
+                Console.WriteLine($"Saque realizado: {valor.ToString("C")}. Pressione qualquer tecla para prosseguir.");
+                Console.ReadKey();
             }
             else
-            {
-                Console.WriteLine($"Tentativa de saque: {valor.ToString("C")}. Saldo insuficiente.");
+            {                
+                Console.WriteLine($"Tentativa de saque: {valor.ToString("C")}. Saldo insuficiente. Pressione qualquer tecla para prosseguir.");
+                Console.ReadKey();
             }
         }
 

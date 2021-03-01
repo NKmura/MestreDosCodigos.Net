@@ -5,6 +5,8 @@ using System.Text;
 
 namespace NivelEscudeiro.POO
 {
+    //adicionar limite de volume
+    //troca de canal quando não houver.. está mostrando o canal maior mas não está trocando
     [Description("POO - Exercício 4")]
     public class POO4 : IExecutar
     {
@@ -116,11 +118,11 @@ Crie uma classe Televisao e uma classe ControleRemoto que pode controlar o volum
     {
         string ObterCanalAtual();
         int ObterVolumeAtual();
-        void AumentarVolume();
-        void DiminuirVolume();
+        bool AumentarVolume();
+        bool DiminuirVolume();
         void AumentarCanal();
         void DiminuirCanal();
-        void IrParaOCanal(int canal);
+        bool IrParaOCanal(int canal);
         void Imprimir();
     }
 
@@ -149,14 +151,24 @@ Crie uma classe Televisao e uma classe ControleRemoto que pode controlar o volum
             return Volume;
         }
 
-        public void AumentarVolume()
+        public bool AumentarVolume()
         {
-            Volume++;
+            if (Volume < 100)
+            {
+                Volume++;
+                return true;
+            }
+            return false;
         }
 
-        public void DiminuirVolume()
+        public bool DiminuirVolume()
         {
-            Volume--;
+            if(Volume>0)
+            {
+                Volume--;
+                return true;
+            }
+            return false;
         }
 
         public void AumentarCanal()
@@ -171,12 +183,14 @@ Crie uma classe Televisao e uma classe ControleRemoto que pode controlar o volum
             else CanalAtual--;
         }
 
-        public void IrParaOCanal(int canal)
+        public bool IrParaOCanal(int canal)
         {
             if (canal >= 0 && canal <= (ListaDeCanais.Length - 1))
             {
                 CanalAtual = canal;
+                return true;
             }
+            return false;
         }
 
         public void Imprimir()
@@ -199,15 +213,15 @@ Crie uma classe Televisao e uma classe ControleRemoto que pode controlar o volum
 
         public void AumentarVolume()
         {
-            Console.WriteLine("Volume aumentado.");
-            TV.AumentarVolume();
+            if (TV.AumentarVolume()) Console.WriteLine("Volume aumentado.");
+            else Console.WriteLine("Volume no máximo.");            
             Imprimir();
         }
 
         public void DiminuirVolume()
-        {
-            Console.WriteLine("Volume diminuído.");
-            TV.DiminuirVolume();
+        {            
+            if(TV.DiminuirVolume()) Console.WriteLine("Volume diminuído."); 
+            else Console.WriteLine("Volume no mínimo.");
             Imprimir();
         }
 
@@ -227,8 +241,9 @@ Crie uma classe Televisao e uma classe ControleRemoto que pode controlar o volum
 
         public void IrParaOCanal(int canal)
         {
-            Console.WriteLine($"Canal alterado para: {canal}.");
-            TV.IrParaOCanal(canal);
+            if (TV.IrParaOCanal(canal)) Console.WriteLine($"Canal alterado para: {canal}.");
+            else Console.WriteLine($"Canal não disponível!");
+
             Imprimir();
         }
 

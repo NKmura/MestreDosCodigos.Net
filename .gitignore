@@ -11,3 +11,5 @@ MestreDosCodigos/NivelEscudeiro/obj/Debug/netcoreapp3.1/NivelEscudeiro.AssemblyI
 MestreDosCodigos/NivelEscudeiro/obj/Debug/netcoreapp3.1/NivelEscudeiro.csproj.FileListAbsolute.txt
 MestreDosCodigos/NivelEscudeiro/obj/NivelEscudeiro.csproj.nuget.g.props
 MestreDosCodigos/.vs/MestreDosCodigos/v16/.suo
+MestreDosCodigos/TestesMsTest/obj/TestesMsTest.csproj.nuget.g.props
+MestreDosCodigos/TestesXunit/obj/TestesXunit.csproj.nuget.g.props

@@ -10,18 +10,19 @@ dessas linguagens acabava por limitar o desenvolvimento da plataforma.
 
 
 3 - Quais os principais motivos para a Microsoft ter migrado para o Core?
-R: Com o passar do tempo o .net foi usado de base para o desenvolvimento de diferentes frameworks de plataformas específicas (Windows desktop, windows store, windows phone, ASP.NET 4, ASP.NET 5, SilverLight e Xbox) 
+R: O desejo de ter 
+Com o passar do tempo o .net foi usado de base para o desenvolvimento de diferentes frameworks de plataformas específicas (Windows desktop, windows store, windows phone, ASP.NET 4, ASP.NET 5, SilverLight e Xbox) 
 e cada um desses "Verticais" eram frameworks separados e diferentes somente compartilhando o mesmo código base comum. Manter a compatibilidade de bibliotecas e retrocompatibilidade de código estava ficando 
 muito difícil de manter alem de que esses carinhas são frameworks completos e muitas vezes não utilizaremos tudo o que ele disponibiliza, só ai a microsoft já teve motivos suficientes para criar o .Net Core.
+-multiplataforma.
 
 
 4 - Cite as principais diferenças entre .Net Full Framework e .Net Core.
 R: 
--Ela possui Runtime otimizado, 
--Completamente independente do framework .net que é instalado na máquina cliente (sempre que fazemos deploy estamos deployando o runtime e as bibliotecas),  
--Multiplataformas podendo ser executadas em MAC OS e Linux.
--Modular, por ser distribuido atravez do nuget, posso usar na minha máquina só o que quiser do framework,
--Open source
+-O .Net core possui Runtime otimizado, 
+-O .Net core é complementamente independente do framework .net que é instalado na máquina cliente (sempre que fazemos deploy estamos deployando o runtime e as bibliotecas),  
+-O .Net Core é multiplataforma podendo ser executadas em MAC OS e Linux.
+-O .net core é modular, por ser distribuido atravez do nuget, posso usar na minha máquina só o que quiser do framework alem de ser open source.
 
 
 Perguntas POO (Implementação dos exemplos podem ser conferidos no arquivo ~/POO/POO1)
@@ -34,9 +35,8 @@ R: Programação Orientada a Objetos (POO) é um paradigma de programação no q
 R: Polimorfismo é o conceito que define que o mesmo método pode ser implementado de diferentes formas em objetos de diferentes classes;
 
 3- O que é abstração?
-R: A abstração é um dos conceitos mais importantes de uma linguagem orientada a objetos, ela é a capacidade de olhar para um objeto do mundo real identificar suas caracteristicas e comportamentos 
-e modela-lo dentro da linguagem na forma de classes, essa classe sempre será somente uma representação de algo do mundo real, pois dificilmente algum desenvolvedor terá a capacidade 
-de representar por completo toda a complexidade do objeto real. A essas "representações" damos o nome de abstrações pois no fim é o que realmente são.
+R: A abstração é um dos conceitos mais importantes de uma linguagem orientada a objetos, ela é a capacidade de extrair aspectos e comportamentos de personagens ou itens  que 
+sejam importantes em um contexto e representalos por meio de classes. 
 
 4- O que é encapsulamento?
 R: O encapsulamento é uma técnica que adiciona segurança quando implementamos em uma linguagem orientada a objetos, ela define que os detalhes internos de uma classe não devem ser visiveis e modificaveis 
@@ -53,8 +53,8 @@ As interfaces podem ser muito poderosas se bem utilizadas, elas permitem o reapr
 designs flexiveis e com grande capacidade de evolução.
 
 6 - O que faz as interfaces IDisposable, IComparable, ICloneable e IEnumerable?
-IDisposable: Define que uma classe implemente o método Dispose(). Esse método é usado para liberar recursos não gerenciaveis, como por exemplo memória. 
-IComparable: Define que uma classe implemente o método CompareTo(). Esse método permite definir a posição de um objeto em uma ordem de classificação.
+IDisposable: Define que uma classe implemente o método Dispose(). Esse método é usado para liberar recursos não gerenciados, como por exemplo conexões com o banco de dados, arquivos, etc... 
+IComparable: Define que uma classe implemente o método CompareTo(). Esse método ao receber um outro objeto permite definir se o objeto atual em uma relação de precedencia antecede, sucede ou tem mesmo valor ao objeto recebido.
 ICloneable:  Define quem uma classe implemente o método Clone(). Esse método permite replicar um objeto com os mesmos valores de uma instância existente.
 IEnumerable: Define que uma classe implemente o método GetEnumerator() que retorna um enumerador, esse enumerador permite a iteração simples em uma lista não generica de elementos, resumindo 
 ele permite deixar algo "iteravel".

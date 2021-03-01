@@ -6,6 +6,7 @@ using System.Text;
 
 namespace NivelEscudeiro.ExerciciosConsole
 {
+    //Não está sacando todo o limite da conta
     [Description("Console - Exercício 4")]
     public class Console4: IExecutar
     {
