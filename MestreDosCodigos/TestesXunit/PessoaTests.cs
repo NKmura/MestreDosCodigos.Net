@@ -31,51 +31,17 @@ namespace TestesXUnit
                 pessoaEsperada.Altura
                 );
 
-            Assert.Equal(pessoaEsperada.Nome, pessoa.ObterNome());
-            Assert.Equal(pessoaEsperada.DataNascimento, pessoa.ObterDataDeNascimento());
-            Assert.Equal(pessoaEsperada.Altura, pessoa.ObterAltura());
+            Assert.Equal(pessoaEsperada.Nome, pessoa.Nome);
+            Assert.Equal(pessoaEsperada.DataNascimento, pessoa.DataNascimento);
+            Assert.Equal(pessoaEsperada.Altura, pessoa.Altura);
         }
-
-        [Theory]
-        [InlineData("Rafael Nakamura")]
-        [InlineData("Maria Aparecida")]
-        public void DeveAlterarNomeCorretamente(string nomeAlteracao)
-        {
-            var pessoa = InstanciarPessoa();
-
-            pessoa.AlterarNome(nomeAlteracao);
-            Assert.Equal(nomeAlteracao, pessoa.ObterNome());
-        }
-
-        [Theory]
-        [InlineData(1991, 2, 3)]
-        [InlineData(1987, 9, 20)]
-        public void DeveAlterarNascimentoCorretamente(int ano, int mes, int dia)
-        {
-            var dataEsperada = new DateTime(ano, mes, dia);
-
-            var pessoa = InstanciarPessoa();
-
-            pessoa.AlterarNascimento(dataEsperada);
-            Assert.Equal(dataEsperada, pessoa.ObterDataDeNascimento());
-        }
-
-        [Theory]
-        [InlineData(1.78)]
-        [InlineData(1.87)]
-        public void DeveAlteraAlturaCorretamente(decimal novaAltura)
-        {
-            var pessoa = InstanciarPessoa();
-
-            pessoa.AlterarAltura(novaAltura);
-            Assert.Equal(novaAltura, pessoa.ObterAltura());
-        }
+       
 
         [Fact]       
-        public void DeveCalcularIdadeCorretamente()
+        public void SePessoaNasceuEm91Em2021DevePossuir29Anos()
         {
             var pessoa = InstanciarPessoa();
-            pessoa.AlterarNascimento(new DateTime(1991, 8, 4));
+            pessoa.DataNascimento = new DateTime(1991, 8, 4);
             var idade = pessoa.CalcularIdadeNaData(new DateTime(2021, 1, 28));
             Assert.Equal(idade, 29);
         }

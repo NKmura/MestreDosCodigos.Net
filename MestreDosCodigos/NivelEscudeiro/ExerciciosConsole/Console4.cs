@@ -81,7 +81,7 @@ Faça uma aplicação que receba N alunos com suas respectivas notas. Use foreac
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("------------------------Alunos com média maior que 7 -----------------------------");
-            var alunosComMediaMaiorQue7 = this.Alunos.Where(x => x.Media >= 7).ToList();
+            var alunosComMediaMaiorQue7 = this.Alunos.Where(x => x.Media > 7).ToList();
 
             if (alunosComMediaMaiorQue7.Count == 0)
             {
@@ -107,8 +107,23 @@ Faça uma aplicação que receba N alunos com suas respectivas notas. Use foreac
             {
                 var aluno = new Aluno();
                 Console.WriteLine($"Aluno N:{i}");
-                aluno.LerNome();
-                aluno.LerNotas();
+
+                Console.Write("Nome: ");
+                aluno.Nome = Console.ReadLine();
+
+                Console.WriteLine("");
+                Console.WriteLine("Informe notas de 1 a 10:");
+
+                while (aluno.Notas.Count < 4)
+                {
+                    decimal notaInput = -1;
+                    Console.Write($"Nota {aluno.Notas.Count + 1}: ");
+                    Decimal.TryParse(Console.ReadLine(), out notaInput);
+
+                    if (notaInput > 0 && notaInput <= 10) aluno.Notas.Add(notaInput);
+                }
+
+
                 Console.WriteLine();
                 Alunos.Add(aluno);
             }
@@ -125,28 +140,8 @@ Faça uma aplicação que receba N alunos com suas respectivas notas. Use foreac
     public class Aluno
     {
         public string Nome { get; set; }
-        List<decimal> Notas { get; set; } = new List<decimal>();
-        public decimal Media => Notas.Count == 0 ? 0 : Math.Round((Notas.Sum(x => x) / Notas.Count),2);
-        
-        public void LerNome()
-        {
-            Console.Write("Nome: ");
-            this.Nome = Console.ReadLine();
-        }
-
-        public void LerNotas()
-        {
-            Console.WriteLine("");
-            Console.WriteLine("Informe notas de 1 a 10:");            
-            while (Notas.Count < 4)
-            {
-                decimal notaInput =-1;
-                Console.Write($"Nota {Notas.Count+1}: ");
-                Decimal.TryParse(Console.ReadLine(), out notaInput);
-
-                if (notaInput > 0 && notaInput <= 10) Notas.Add(notaInput);                
-            }
-        }
+        public List<decimal> Notas { get; set; } = new List<decimal>();
+        public decimal Media => Notas.Count == 0 ? 0 : Math.Round((Notas.Sum(x => x) / Notas.Count),2);                        
     }
 
     public static class ListAlunosExtensions

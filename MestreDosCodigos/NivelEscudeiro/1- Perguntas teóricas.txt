@@ -10,11 +10,8 @@ dessas linguagens acabava por limitar o desenvolvimento da plataforma.
 
 
 3 - Quais os principais motivos para a Microsoft ter migrado para o Core?
-R: O desejo de ter 
-Com o passar do tempo o .net foi usado de base para o desenvolvimento de diferentes frameworks de plataformas específicas (Windows desktop, windows store, windows phone, ASP.NET 4, ASP.NET 5, SilverLight e Xbox) 
-e cada um desses "Verticais" eram frameworks separados e diferentes somente compartilhando o mesmo código base comum. Manter a compatibilidade de bibliotecas e retrocompatibilidade de código estava ficando 
-muito difícil de manter alem de que esses carinhas são frameworks completos e muitas vezes não utilizaremos tudo o que ele disponibiliza, só ai a microsoft já teve motivos suficientes para criar o .Net Core.
--multiplataforma.
+R: 
+-Fazer com que o .net passasse a ser multiplataforma, podendo ser executado em ambientes como MacOS ou Linux diferente do .net full framework que só pode rodar em windows.
 
 
 4 - Cite as principais diferenças entre .Net Full Framework e .Net Core.

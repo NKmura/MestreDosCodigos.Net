@@ -16,7 +16,7 @@ namespace NivelEscudeiro.ExerciciosConsole
             int quantidade = 0;
             while (quantidade <= 0)
             {
-                Console.Write("Informe a quantidade de elementos que deverão ser randomizados para a lista: ");
+                Console.Write("Informe a quantidade de número que serão lidos: ");
                 Int32.TryParse(Console.ReadLine(), out quantidade);
             }
             LerValores(quantidade);
@@ -57,7 +57,7 @@ namespace NivelEscudeiro.ExerciciosConsole
 Console - Exercício 9
 Utilizando a biblioteca LINQ crie no console e execute:
 
--Crie uma lista que receba inteiros (randomizei a criação dos números para facilitar o teste).
+-Crie uma lista que receba inteiros.
 -Imprimir todos os números da lista.
 -Imprimir todos os números da lista na ordem crescente.
 -Imprimir todos os números da lista na ordem decrescente.

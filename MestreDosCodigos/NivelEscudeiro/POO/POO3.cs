@@ -170,7 +170,7 @@ Faça uma aplicação bancária.
             {
                 Saldo += valor-this.TaxaDeOperacao;
                 Saldo = Math.Round(Saldo, 2);
-                Console.WriteLine($"Depósito realizado: {valor.ToString("C")}. Pressione qualquer tecla para prosseguir.");
+                Console.WriteLine($"Depósito realizado: {valor.ToString("C")}.");
             }            
         }
 
@@ -180,13 +180,11 @@ Faça uma aplicação bancária.
             {
                 this.Saldo -= (valor + TaxaDeOperacao);
                 Saldo = Math.Round(Saldo, 2);
-                Console.WriteLine($"Saque realizado: {valor.ToString("C")}. Pressione qualquer tecla para prosseguir.");
-                Console.ReadKey();
+                Console.WriteLine($"Saque realizado: {valor.ToString("C")}.");                
             }
             else
             {
-                Console.WriteLine($"Tentativa de saque: {valor.ToString("C")}. Saldo insuficiente. Pressione qualquer tecla para prosseguir.");
-                Console.ReadKey();
+                Console.WriteLine($"Tentativa de saque: {valor.ToString("C")}. Saldo insuficiente. ");                
             }
         }
 
@@ -211,7 +209,7 @@ Faça uma aplicação bancária.
         {
             this.Saldo += valor;
             Saldo = Math.Round(Saldo, 2);
-            Console.WriteLine($"Depósito realizado: {valor.ToString("C")}. Pressione qualquer tecla para prosseguir.");
+            Console.WriteLine($"Depósito realizado: {valor.ToString("C")}.");
         }
 
         public override void Sacar(double valor)
@@ -220,13 +218,11 @@ Faça uma aplicação bancária.
             {
                 Saldo -= valor;
                 Saldo = Math.Round(Saldo, 2);
-                Console.WriteLine($"Saque realizado: {valor.ToString("C")}. Pressione qualquer tecla para prosseguir.");
-                Console.ReadKey();
+                Console.WriteLine($"Saque realizado: {valor.ToString("C")}.");                
             }
             else
             {                
-                Console.WriteLine($"Tentativa de saque: {valor.ToString("C")}. Saldo insuficiente. Pressione qualquer tecla para prosseguir.");
-                Console.ReadKey();
+                Console.WriteLine($"Tentativa de saque: {valor.ToString("C")}. Saldo insuficiente.");
             }
         }
 

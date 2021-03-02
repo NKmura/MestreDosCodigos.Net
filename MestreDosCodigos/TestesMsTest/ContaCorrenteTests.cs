@@ -18,32 +18,29 @@ namespace TestesMsTest
         }
 
         [TestMethod]
-        public void DeveSacarCorretamente()
+        public void Sacar_SeTiver500ETaxaFor10_ESolicitar300_DeveRestar190()
         {
-            var cc = CriarConta();
-            var valorSaque = Math.Round((cc.ObterSaldo() * 0.01d),2);
-            var saldoEsperado = Math.Round((cc.ObterSaldo() - cc.ObterTaxa() - valorSaque), 2);
+            var cc = CriarConta(500,10);
+            var valorSaque = 300;
+            var saldoEsperado = 190;
 
             cc.Sacar(valorSaque);
             Assert.AreEqual(saldoEsperado, cc.ObterSaldo());
         }
 
         [TestMethod]
-        public void DeveDepositarCorretamente()
+        public void Depositar_SeSaldoFor100ETaxaFor20_EDepositar100_DeveTerSaldo180()
         {
-            var cc = CriarConta();
-            var valorDeposito = Math.Round((cc.ObterSaldo() * 0.3d),2);
-            var saldoEsperado = Math.Round((cc.ObterSaldo() - cc.ObterTaxa() + valorDeposito),2);
+            var cc = CriarConta(100,20);
+            var valorDeposito = 100;
+            var saldoEsperado = 180;
 
             cc.Depositar(valorDeposito);
             Assert.AreEqual(saldoEsperado, cc.ObterSaldo());
         }
 
-        private ContaCorrente CriarConta()
-        {
-            double saldo = _faker.Random.Int(1000, 10000);
-            double taxa = Math.Round((saldo * 0.02d),2);
-
+        private ContaCorrente CriarConta(double saldo, double taxa)
+        {            
             return new ContaCorrente(
                 "12345-7",
                 saldo,
